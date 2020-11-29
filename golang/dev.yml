@@ -1,0 +1,30 @@
+ 
+version: '3.6'
+x-build:
+  &build
+  context: .
+  dockerfile: Dockerfile
+x-env:
+  &env
+  TEST_VAR: ${TEST_VAR:-DEBUG}
+services:
+  web:
+    image: courses-wegraph/courses-api:${VERSION:-latest}
+    build: *build
+    environment: *env
+    restart: always
+    ports:
+      - '3000:3000'
+      - '4000:4000'
+    volumes:
+      - courses-api:/usr/src/app/
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  courses-api:

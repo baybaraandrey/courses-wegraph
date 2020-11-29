@@ -1,0 +1,11 @@
+[run]
+branch = true
+omit = *apps*, */tests/*, */migrations/*, */urls.py, */settings/*, */wsgi.py, manage.py, fabfile.py
+source = .
+
+[report]
+exclude_lines =
+    pragma: no cover
+    class \w+\(Interface\):
+show_missing = True
+skip_covered = True

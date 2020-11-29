@@ -1,0 +1,143 @@
+{% extends "base/layout.html" %}
+
+{% load static %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block js %}
+<script src="{% static 'js/playerjs.js' %}"></script>
+
+{% endblock js %}
+
+{% block content %}
+<div class="course_title_desc top_detail_course">
+    <div class="conteiner_padding">
+        <div class="title_link_course">
+            <a href="#" class="course_link">Главная страница</a>
+            <a href="#">{{ course.sub_category.category.name }}</a>
+            <a href="#">{{ course.sub_category.name }}</a>
+            <a href="#">{{ course.name }}</a>
+        </div>
+        <h2 class="title_course_choise">{{ course.name }}</h2>
+        <!-- краткое описания курса -->
+        <div class="description_course description_course_min_padding">
+          <div class="row">
+              <div class="col-12">
+            <div class="row icon_desp">
+                <div class="col-6  col-sm-4  col-md-3  col-lg-2  col-xl-2">
+                    <div class="icon_timer_element">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <div class="icon_tim_desc">
+                            <p>Продожительность</p>
+                            <P>  02:36:25</P>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="col-6  col-sm-4  col-md-3  col-lg-2  col-xl-2">
+                    <div class="icon_timer_element">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <div class="icon_tim_desc">
+                            <p>Источник</p>
+                            <P> Udemy</P>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="col-6  col-sm-4  col-md-3  col-lg-2  col-xl-2">
+                    <div class="icon_timer_element">
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        <div class="icon_tim_desc">
+                            <p>Количество уроков</p>
+                            <P>35 видео</P>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="col-6  col-sm-4  col-md-3  col-lg-2  col-xl-2">
+                    <div class="icon_timer_element">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <div class="icon_tim_desc">
+                            <p>Давта добавления</p>
+                            <P>20/11/2020</P>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="col-6  col-sm-4  col-md-3  col-lg-2  col-xl-2">
+                    <div class="icon_timer_element">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <div class="icon_tim_desc">
+                            <p>Язык</p>
+                            <P>English</P>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="col-6  col-sm-4  col-md-3  col-lg-2  col-xl-2">
+                    <div class="icon_timer_element">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <div class="icon_tim_desc">
+                            <p>Дата выхода</p>
+                            <P>20/11/2020</P>
+                        </div>
+                      </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-12">
+            <p>JavaScript, Webpack, React, Redux - то, что встречается в каждой второй вакансии. Именно это и будем учить. В этом курсе вы изучите современный JavaScript - самый популярный в мире язык программирование на данный момент. На JavaScript можно писать приложения для браузера (веб сайты), приложения для мобильных телефонов (iOS и Android). Кроме этого с помощью JavaScript можно запрограммировать микросхемы, создать блокчейн или делать машинное обучение. Но всему свое время ;)</p>
+            <p>ОБНОВЛЕНИЕ! <br>
+                В лекции добавлены примеры кода, который рассматривается на видео. Рекомендую писать код за лектором по видео самостоятельно! И лишь после этого сравнивать свое решение с готовым из архива.  Повторяйте, запускайте код, пробуйте его менять, экспериментируйте! Так же проверяйте прикрепленные к лекции файлы на предмет стартового кода для решения задач. Прикреплен так же и финальный вариант задач (решенные задачи). Используйте их после того, как решили задачи сами для проверки. А так же иногда решение в прикрепленном архиве может отличаться от того, что было на видео. Изучайте, как код можно написать немного по-другому. Практикуйтесь!</p>
+                <p>Что главное:</p>
+                <ul>
+                    <li>вся необходимая теория</li>
+                    <li>большое количество практики</li>
+                    <li>напишем полноценные небольшие проекты</li>
+                    <li>только актуальное и необходимое</li>
+                </ul>
+            <p>Основа для всего - Core JavaScript (чистый JavaScript) - эму то мы и длим основное внимание. В этом курсе мы шаг за шагом пройдем от самых основ (типы данных и переменные) до продвинутых техник работы с данными и промисами.</p>
+            <p>Вторая часть курса посвящена изучению библиотек React и Redux. Именно они используются для написания сайтов и приложений, как Instagram, Facebook, Netflix и других. Тех, которыми мы с Вами пользуемся каждый день.</p>
+            <p>JavaScript быстро развивается и сейчас новичку сложно сориентироваться во всех материалах фреймворка, что вылетают по запросу в google. Здесь я структурировал и на примерах рассказываю все необходимые темы. Этого будет достаточно, чтобы создавать качественные приложения. Не буду скрывать, что просто изучив теорию, работу получить сложно. Работодатели хотят практику и опыт. И имея качественный фундамент, набраться нужного опыта - дело техники (с экономией месяцев времени).</p>
+        </div>
+
+          </div>
+
+        </div>
+    </div>
+</div>
+<div class="conteiner_player">
+  <div class="conteiner_padding">
+    <div id="player">
+
+    </div>
+  </div>
+</div>
+<script>
+  // добавление плейлиста
+  var player = new Playerjs({
+id:"player",
+file:[
+{"title":"Intro to Fullstack Flask","file":"http://courses.wegraph.net/api/v1/media/fullstack_python/intro_to_fullstack_flask/playlist.m3u8", hls:1},
+{"title":"Building your first Flask Application","file":"http://courses.wegraph.net/api/v1/media/fullstack_python/building_your_first_flask_application/playlist.m3u8", hls:1},
+{"title":"Getting started", "file":'http://courses.wegraph.net/api/v1/media/fullstack_python/getting_started/playlist.m3u8', hls:1}
+]
+});
+// скрипт раскрытия блока  описания курса 
+$(".description_course_min_padding").on("click", function(e){
+    $(this).toggleClass("active_show_desc");
+    if($(this).hasClass("active_show_desc")){$(".active_show_desc").animate({maxHeight: 1000},1500);}
+    else{$(".description_course_min_padding").animate({maxHeight: 200},1200);}
+    
+})
+</script>
+
+
+
+
+{% endblock content %}

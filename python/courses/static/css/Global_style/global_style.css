@@ -1,0 +1,365 @@
+body {
+    font-family: Cambay;
+    font-size: 1rem;
+    line-height: 1.2;
+    }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+.container_global{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    position: relative;
+
+}
+
+/* стиль для хедера  */
+header{
+  height: 80px;
+  background-color: #243665;
+}
+header .header_block{
+  display:flex;
+  height: 100%;
+  justify-content: space-between;
+}
+.header_block_1{
+  display: flex;
+}
+.header_block_all{
+  height:100%;
+  line-height:80px;
+  padding-left: 40px;
+}
+
+.header_block_sources{
+  display: flex;
+}
+.header_block_sources a{
+  padding-right: 30px;
+  color: #d5e2ed;
+}
+ .logo{
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 1px;
+}
+.logo span{
+  color: #008d92;
+  font-size: 26px;
+
+}
+
+.header_block_signIn{
+  min-width: 250px;
+}
+
+/* Стиль для выподающего списка выбора категорий в хедере */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,cyrillic);
+
+nav {
+  margin-left: 25px;
+  margin-top: 29px;
+  text-align: center;
+}
+nav a {
+  text-decoration: none;
+  display: block;
+  transition: .3s linear;
+}
+.navsubmenu{
+  margin-top: 15px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topmenu > li {
+  display: inline-block;
+  position: relative;
+  margin-right: -4px;
+
+}
+.topmenu > li:last-child {}
+.topmenu > li > a {
+  text-decoration: none;
+  font-size: 19px;
+  color: #1c1c1c;
+}
+.active:after, .submenu-link:after {
+  content: "\f107";
+  font-family: "FontAwesome";
+  color: inherit;
+  margin-left: 10px;
+}
+
+.topmenu .active, .topmenu > li > a:hover, .submenu li a:hover {color: #3d9690;}
+.submenu {
+  position: absolute;
+  left: -1px;
+  z-index: 5;
+  width: 200px;
+  border-bottom: 1px solid #ECF1F2;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: .3s ease-in-out;
+}
+.topmenu .active{
+  color: #d5e2ed;
+}
+.submenu li {position: relative;}
+.submenu a {
+  text-decoration: none;
+  background: white;
+  border-top: 1px solid #ECF1F2;
+  border-right: 1px solid #ECF1F2;
+  border-left: 1px solid #ECF1F2;
+  color: #1c1c1c;
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 10px 5px;
+
+}
+.submenu .submenu {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 1px);
+  left: -webkit-calc(100% - 1px);
+}
+nav li:hover > .submenu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* стиль для поля поиска в хедере */
+.header_block_search{
+  position: relative;
+  min-width: 200px;
+}
+.wrapper{
+  position: absolute;
+  top: 47%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper_container{
+  width: 0px;
+  height: 46px;
+  text-align: center;
+  line-height: 38px;
+  padding-right: 50px;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.input{
+  border: 0px;
+  opacity: 0;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  width: 0%;
+  outline: none;
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.wrapper_container .fa{
+  color: #ffffff;
+  position: absolute;
+  right: 11px;
+  top: 13px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.wrapper_container.active_search{
+  width: 250px;
+  padding-left: 25px;
+  transition: all 0.5s ease;
+}
+
+.input.active_search{
+  opacity: 1;
+  width: 98%;
+  padding-left: 5px;
+  transition: all 0.5s 0.8s ease;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+
+
+/* стль для блока последние добавленные курсы, список курсов */
+.after_course{
+  width: 100%;
+  padding: 30px 60px;
+  background-color: #0E1933;
+
+}
+.after_course .container-fluid{
+  text-align: center;
+}
+.after_course .container-fluid .row {
+  width: 100%;
+  padding: 4px;
+
+
+
+
+}
+.after_course .container-fluid .row .after_course_element{
+  text-align: left;
+}
+.after_course .container-fluid h3{
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  color: #d5e2ed;
+
+}
+.after_course_element{
+  background-color: #342C51;
+  border: 1px solid #920555;
+  margin-top: 30px;
+}
+.course_image_conteiner{
+  padding: 0;
+  overflow: hidden;
+}
+.course_image{
+object-fit: cover;
+max-height: 300px;
+width: 100%;
+}
+.course_image:hover{
+  transform: scale(1.1);
+  transition:  0.2s ease-in-out;
+}
+.title_raiting_star{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.title_raiting_star .title_course_name{
+  font-family: 'Raleway', sans-serif;
+  font-size: 19px;
+  color: #d5e2ed;
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+.title_raiting_star .reiting_star .icon_star{
+  display: flex;
+  padding-bottom: 8px;
+}
+.title_raiting_star .reiting_star .icon_star .fa-star{
+  color: #d5e2ed;
+  padding-right: 3px;
+  font-size: 19px;
+}
+.title_raiting_star .reiting_star .icon_star .fa-star-o{
+  color: #d5e2ed;
+  padding-right: 3px;
+  font-size: 19px;
+}
+.after_course .container-fluid .row .after_course_element p{
+  color: #d5e2ed;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 22px;
+}
+.bottom_flex_span_course{
+  display: flex;
+  justify-content: space-between;
+  line-height: normal;
+
+
+}
+.bottom_flex_span_course .btn{
+  padding: 0px 24px;
+  background-color: #8F27C9;
+  border: none;
+}
+.icon_timer_element{
+  display: flex;
+  padding-right: 15px;
+}
+.icon_timer{
+  display: flex;
+}
+.icon_timer_element .fa{
+  font-size: 22px;
+  color:#ABCADE;
+  padding-right: 6px;
+}
+.after_course .container-fluid .row .after_course_element .icon_timer_element p{
+  font-size: 13px;
+  color: #98C3DE;
+}
+/* стиль для кнопки все курсы, больше категорий и т.д. */
+.btn_more_categories{
+  margin-top: 35px;
+  font-size: 22px;
+  padding: 5px 22px;
+  margin-bottom: 35px;
+
+}
+.btn_more_categories a{
+text-decoration: none;
+color: white;
+
+}
+
+/* стиль для футера */
+footer .container-fluid{
+  background-color: #333366;
+  padding: 50px;
+}
+footer .container-fluid h3{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+footer .container-fluid h3:hover{
+  color: #FA82BD;
+}
+footer .container-fluid a{
+  text-decoration: none;
+}
+footer .container-fluid p{
+  color: #d5e2ed;
+  font-size: 14px;
+  letter-spacing: 0px;
+  line-height: 18px;
+}
+.footer_bottom{
+  background-color: black;
+  padding: 20px 0;
+  text-align: center;
+}
+.footer_bottom h3{
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: white;
+}

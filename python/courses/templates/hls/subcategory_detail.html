@@ -1,0 +1,227 @@
+{% extends "base/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="course_title_desc">
+    <div class="conteiner_padding">
+        <div class="title_link_course">
+            <a href="#" class="course_link">Главная страница</a>
+            <a href="#">{{ subcategory.category.name }}</a>
+            <a href="#">{{ subcategory.name }}</a>
+        </div>
+        <h2 class="title_course_choise">Видеоуроки {{ subcategory.name }}</h2>
+        <div class="description_course">
+          <div class="row">
+            <div class="col-12  col-sm-4  col-md-4  col-lg-1  col-xl-1">
+              <img src="{{ subcategory.icon.url }}" alt="" class="icon_course_description">
+            </div>
+            <div class="col-12  col-sm-8  col-md-8  col-lg-11  col-xl-11 relative">
+              <p class="course_description">{{ subcategory.description }}</p>
+            </div>
+
+          </div>
+
+        </div>
+         <!-- блок с фильтрацией и кнопками выбора курсов -->
+        <div class="filtr_course">
+    <button type="button" class="btn btn-dark">Все</button>
+    <button type="button" class="btn btn-dark">Angular</button>
+    <button type="button" class="btn btn-dark">HTML</button>
+    <button type="button" class="btn btn-dark">CSS</button>
+    <button type="button" class="btn btn-dark">FavaScript</button>
+    <button type="button" class="btn btn-dark">React</button>
+    <button type="button" class="btn btn-dark">Jquery</button>
+    <button type="button" class="btn btn-dark">Typescript</button>
+    </div>
+    </div>
+</div>
+
+<!-- блок курсы с выбранной категории  -->
+<div class="after_course">
+    <div class="container-fluid">
+      <div class="row">
+        {% for course in courses %}
+          <!-- элемент в блоке -->
+          <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+            <div class="row">
+              <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+                <img src="{{ course.icon.url }}" alt="" class="course_image">
+
+              </div>
+              <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+                <div class="title_raiting_star">
+                  <h2 class="title_course_name">{{ course.name }}</h2>
+                  <div class="reiting_star">
+                    <div class="icon_star">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+
+                    </div>
+                    <p>Голосов:1 | 1/0</p>
+                  </div>
+                </div>
+                <p class="description">{{ course.name }}</p>
+                <p class="description">{{ course.description | truncatechars:200 }}</p>
+                <div class="bottom_flex_span_course">
+                  <div class="icon_timer">
+                    <div class="icon_timer_element">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                      <P> 00:57:58</P>
+                    </div>
+                    <div class="icon_timer_element">
+                      <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                      <P> 40 уроков</P>
+                    </div>
+                    <div class="icon_timer_element">
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                      <P> English</P>
+                    </div>
+                    <a href="">
+                      <div class="icon_timer_element">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <P> Udemy</P>
+                      </div>
+                    </a>
+
+                  </div>
+                  <a href="{% url 'hls:course_detail' course.slug %}" >
+                    <button type="button" class="btn btn-primary">Посмотреть</button>
+                  </a>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        {% endfor %}
+        <!-- элемент в блоке -->
+        <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+          <div class="row">
+            <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+              <img src="{% static 'img/img_course_categories/cypress.jfif' %}" alt="" class="course_image">
+
+            </div>
+            <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+              <div class="title_raiting_star">
+                <h2 class="title_course_name">CYPRESS: АВТОМАТИЗАЦИЯ ТЕСТИРОВАНИЯ ДЛЯ ТЕХ КТО ТОРОПИТСЯ</h2>
+                <div class="reiting_star">
+                  <div class="icon_star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+
+                  </div>
+                  <p>Голосов:1 | 1/0</p>
+                </div>
+              </div>
+              <p class="description">Cypress test automation for people in a hurry</p>
+              <p class="description">Этот курс предназначен для тестировщиков, инженеров по автоматизации и веб-разработчиков, которым необходимо быстро выучиться. Если вы начинаете с нуля или уже знакомы с автоматизацией тестирования, тогда этот курс для вас. Он заполнен краткими пояснительными видео, без лишних слов, только с практическими материалами.</p>
+              <div class="bottom_flex_span_course">
+                <div class="icon_timer">
+                  <div class="icon_timer_element">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <P> 00:57:58</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <P> 40 уроков</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <P> English</P>
+                  </div>
+                  <a href="">
+                    <div class="icon_timer_element">
+                      <i class="fa fa-book" aria-hidden="true"></i>
+                      <P> Udemy</P>
+                    </div>
+                  </a>
+
+                </div>
+                <button type="button" class="btn btn-primary">Посмотреть</button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- элемент в блоке -->
+        <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+          <div class="row">
+            <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+              <img src="{% static 'img/img_course_categories/react.jfif' %}" alt="" class="course_image">
+
+            </div>
+            <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+              <div class="title_raiting_star">
+                <h2 class="title_course_name">ТЕСТИРОВАНИЕ ПРИЛОЖЕНИЙ REACT C RTL</h2>
+                <div class="reiting_star">
+                  <div class="icon_star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o " aria-hidden="true"></i>
+                    <i class="fa fa-star-o " aria-hidden="true"></i>
+
+                  </div>
+                  <p>Голосов:3 | 2/1</p>
+                </div>
+              </div>
+              <p class="description">Cypress test automation for people in a hurry</p>
+              <p class="description">Этот курс предназначен для тестировщиков, инженеров по автоматизации и веб-разработчиков, которым необходимо быстро выучиться. Если вы начинаете с нуля или уже знакомы с автоматизацией тестирования, тогда этот курс для вас. Он заполнен краткими пояснительными видео, без лишних слов, только с практическими материалами.</p>
+              <div class="bottom_flex_span_course">
+                <div class="icon_timer">
+                  <div class="icon_timer_element">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <P>  02:36:25</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <P> 21 уроков</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <P> English</P>
+                  </div>
+                  <a href="">
+                    <div class="icon_timer_element">
+                      <i class="fa fa-book" aria-hidden="true"></i>
+                      <P> Udemy</P>
+                    </div>
+                  </a>
+
+                </div>
+                <button type="button" class="btn btn-primary">Посмотреть</button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+      <!-- пагинация  -->
+      <nav aria-label="...">
+        <ul class="pagination pagination-sm nav">
+          <li class="page-item active_numberpage"><a class="page-link" href="#"></a>1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+          <li class="page-item"><a class="page-link" href="#">...</a></li>
+          <li class="page-item"><a class="page-link" href="#">50</a></li>
+        </ul>
+      </nav>
+    </div>
+</div>
+
+{% endblock content %}

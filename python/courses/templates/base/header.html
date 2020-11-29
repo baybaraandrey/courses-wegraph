@@ -1,0 +1,81 @@
+{% load static %}
+<header>
+  <div class="header_block">
+    <div class="header_block_1">
+      <div class="header_block_all header_block_logo">
+        <p class="logo">pro<span>courses</span></p>
+      </div>
+      <div class="header_block_categories">
+
+        <!-- выподающий список с категориями -->
+        <nav>
+          <ul class="topmenu">
+            <li><a href="" class="active">Категории</a>
+              <ul class="submenu navsubmenu">
+                <!-- Список категорий -->
+                <li><a href="">Javascript</a></li>
+                <li><a href="" class="submenu-link">меню второго уровня</a>
+                  <!-- Список подкатегорий -->
+                  <ul class="submenu">
+                    <li><a href="">SubMenu</a></li>
+                    <li><a href="">Angular</a></li>
+                    <li><a href="">React</a></li>
+                  </ul>
+                </li>
+                <li><a href="">Python</a></li>
+                <li><a href="" class="submenu-link">Java</a>
+                  <!-- Список подкатегорий -->
+                  <ul class="submenu">
+                    <li><a href="">SubMenu</a></li>
+                    <li><a href="">Angular</a></li>
+                    <li><a href="">React</a></li>
+                  </ul>
+                </li>
+                <li><a href="">Ruby</a></li>
+                {% for category in categories %}
+                  <li><a href="" class="submenu-link">{{ category.name }}</a>
+                    <!-- Список подкатегорий -->
+                    <ul class="submenu">
+                      {% for sub in category.sub_categories.all %}
+                        <li><a href="{% url 'hls:subcategory_detail' sub.slug %}">{{ sub.name }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+      <div class="header_block_all header_block_sources">
+        <a href="">Источники</a>
+        <a href="">Все курсы</a>
+      </div>
+    </div>
+
+    <div class="header_block_1">
+      <div class="header_block_all header_block_search">
+        <!-- поле поиска в хедере -->
+        <div class="wrapper">
+          <div class="wrapper_container">
+            <input type="text" class="input" placeholder="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+        </div>
+
+      </div>
+      <div class="header_block_all header_block_signIn">
+        <button type="button" class="btn btn-outline-danger">SignIn</button>
+      </div>
+    </div>
+
+  </div>
+</header>
+<script>
+    // скрипт анимации поиска в хедере
+    $(".fa-search").click(function () {
+      $(".wrapper_container, .input").toggleClass("active_search");
+      $("input[type='text']").focus();
+    });
+</script>

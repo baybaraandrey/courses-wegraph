@@ -1,0 +1,72 @@
+version: '3.7'
+x-build:
+  args:
+    DEVEL: 'yes'
+    IPYTHON: 'yes'
+x-env:
+  &env
+  TEST_ENV: 'TEST'
+  DOCKER: '${DOCKER:-true}'
+  DJANGO_SECRET_KEY: '${DJANGO_SECRET_KEY:-test}'
+  DJANGO_JWT_SECRET_KEY: '${DJANGO_JWT_SECRET_KEY:-test}'
+  DJANGO_DEBUG: '${DJANGO_DEBUG:-true}'
+  DJANGO_ALLOWED_HOSTS: '${DJANGO_ALLOWED_HOSTS:-*}'
+  DJANGO_SETTINGS_MODULE: '${DJANGO_SETTINGS_MODULE:-config.settings.local}'
+  POSTGRES_PASSWORD: '${POSTGRES_PASSWORD:-wegraph}'
+  POSTGRES_USER: '${POSTGRES_USER:-wegraph}'
+  POSTGRES_DB: '${POSTGRES_DB:-wegraph}'
+  POSTGRES_HOST: '${POSTGRES_HOST:-postgres}'
+  POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+  DJANGO_MAILGUN_API_KEY: '${DJANGO_MAILGUN_API_KEY:-}'
+  DJANGO_MAILGUN_DOMAIN_NAME: '${DJANGO_MAILGUN_DOMAIN_NAME:-}'
+  DJANGO_MAILGUN_FROM: '${DJANGO_MAILGUN_FROM:-}'
+services:
+  web:
+    image:  courses-wegraph/courses-django:${VERSION:-latest}
+    build:
+        context: ./python
+        dockerfile: ./compose/local/django/Dockerfile
+    restart: always
+    depends_on:
+        - postgres
+    volumes:
+        - './python:/app'
+    environment: *env
+    ports:
+        - '8000:8000'
+    command: prod_server
+    networks:
+        - backend
+
+  postgres:
+    image: postgres:11
+    restart: always
+    volumes:
+      - 'postgres-data:/var/lib/postgresql/data'
+    environment: *env
+    networks:
+      - backend
+
+  courses-api:
+    image: courses-wegraph/courses-api:${VERSION:-latest}
+    build:
+      context: ./golang
+      dockerfile: Dockerfile
+    environment: *env
+    restart: always
+    ports:
+      - '3000:3000'
+      - '4000:4000'
+    volumes:
+      - courses-api:/usr/src/app/
+    networks:
+      - backend
+
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  courses-api:
+  postgres-data:

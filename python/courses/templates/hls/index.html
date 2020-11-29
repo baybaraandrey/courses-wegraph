@@ -1,0 +1,431 @@
+{% extends "base/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- блок hero -->
+<div class="hero">
+  <div class="hero_flex">
+      <h2>Добро пожаловать на Programming Courses</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint possimus ea tempore impedit nemo odio animi culpa repellendus laboriosam ad?</p>
+
+    <!-- поиск в блоке херо -->
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <i class="fa fa-search-plus" aria-hidden="true"></i>
+    </form>
+  </div>
+</div>
+
+<!-- блок популярные категории -->
+<div class="favorite_categories">
+  <div class="container_global">
+    <h2 class="popular_categories_title">Популярные категории</h2>
+    <div class="grid_favorite_categories">
+      {% for category in categories %}
+        {% for sub in category.sub_categories.all %}
+          <div class="grid_favorite_categories_element" data-show-id='10'>
+            <img src="{{ sub.icon.url }}" alt="" class="categories_element_img">
+            <div class="line_text">
+              <h3 class="categories_element_nick">{{ sub.name }}</h3>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+      <div class="grid_favorite_categories_element" data-show-id='1'>
+        <img src="{% static 'img/icon_programming/c++.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">C++ </h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='2'>
+        <img src="{% static 'img/icon_programming/angular.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Angular </h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='3'>
+        <img src="{% static 'img/icon_programming/css.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">CSS </h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='4'>
+        <img src="{% static 'img/icon_programming/html.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">HTML</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='5'>
+        <img src="{% static 'img/icon_programming/java.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Java</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='6'>
+        <img src="{% static 'img/icon_programming/js.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">JavaScript</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='7'>
+        <img src="{% static 'img/icon_programming/node.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Node</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='8'>
+        <img src="{% static 'img/icon_programming/php.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">PHP</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='9'>
+        <img src="{% static 'img/icon_programming/python.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Python</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='10'>
+        <img src="{% static 'img/icon_programming/react.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">React</h3>
+      </div>
+      </div>
+    <!-- скрытые попклярные категории -->
+
+      <div class="grid_favorite_categories_element" data-show-id='11'>
+        <img src="{% static 'img/icon_programming/c++.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">C++ </h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='12'>
+        <img src="{% static 'img/icon_programming/angular.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Angular </h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='13'>
+        <img src="{% static 'img/icon_programming/css.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">CSS </h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='14'>
+        <img src="{% static 'img/icon_programming/html.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">HTML</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='15'>
+        <img src="{% static 'img/icon_programming/java.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Java</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='16'>
+        <img src="{% static 'img/icon_programming/js.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">JavaScript</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='17'>
+        <img src="{% static 'img/icon_programming/node.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Node</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='18'>
+        <img src="{% static 'img/icon_programming/php.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">PHP</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='19'>
+        <img src="{% static 'img/icon_programming/python.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">Python</h3>
+      </div>
+      </div>
+      <div class="grid_favorite_categories_element" data-show-id='20'>
+        <img src="{% static 'img/icon_programming/react.png' %}" alt="" class="categories_element_img">
+        <div class="line_text">
+        <h3 class="categories_element_nick">React</h3>
+      </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-info btn_more_categories">Больше категорий</button>
+  </div>
+
+  <!-- блок последние добавленые курсы  -->
+  <div class="after_course">
+  <div class="container-fluid">
+    <h3>Последние добавленные курсы</h3>
+    <div class="row">
+      <!-- элемент в блоке -->
+      <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+        <div class="row">
+          <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+            <img src="{% static 'img/img_course_categories/cypress.jfif' %}" alt="" class="course_image">
+          </div>
+          <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+            <div class="title_raiting_star">
+              <h2 class="title_course_name">CYPRESS: АВТОМАТИЗАЦИЯ ТЕСТИРОВАНИЯ ДЛЯ ТЕХ КТО ТОРОПИТСЯ</h2>
+              <div class="reiting_star">
+                <div class="icon_star">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <p>Голосов:1 | 1/0</p>
+              </div>
+            </div>
+            <p class="description">Cypress test automation for people in a hurry</p>
+            <p class="description">Этот курс предназначен для тестировщиков, инженеров по автоматизации и веб-разработчиков, которым необходимо быстро выучиться. Если вы начинаете с нуля или уже знакомы с автоматизацией тестирования, тогда этот курс для вас. Он заполнен краткими пояснительными видео, без лишних слов, только с практическими материалами.</p>
+            <div class="bottom_flex_span_course">
+              <div class="icon_timer">
+                <div class="icon_timer_element">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  <P> 00:57:58</P>
+                </div>
+                <div class="icon_timer_element">
+                  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                  <P> 40 уроков</P>
+                </div>
+                <div class="icon_timer_element">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+                  <P> English</P>
+                </div>
+                <a href="">
+                  <div class="icon_timer_element">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <P> Udemy</P>
+                  </div>
+                </a>
+              </div>
+              <button type="button" class="btn btn-primary">Посмотреть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- элемент в блоке -->
+      <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+        <div class="row">
+          <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+            <img src="{% static 'img/img_course_categories/react.jfif' %}" alt="" class="course_image">
+          </div>
+          <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+            <div class="title_raiting_star">
+              <h2 class="title_course_name">ТЕСТИРОВАНИЕ ПРИЛОЖЕНИЙ REACT C RTL</h2>
+              <div class="reiting_star">
+                <div class="icon_star">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o " aria-hidden="true"></i>
+                  <i class="fa fa-star-o " aria-hidden="true"></i>
+
+                </div>
+                <p>Голосов:3 | 2/1</p>
+              </div>
+            </div>
+            <p class="description">Cypress test automation for people in a hurry</p>
+            <p class="description">Этот курс предназначен для тестировщиков, инженеров по автоматизации и веб-разработчиков, которым необходимо быстро выучиться. Если вы начинаете с нуля или уже знакомы с автоматизацией тестирования, тогда этот курс для вас. Он заполнен краткими пояснительными видео, без лишних слов, только с практическими материалами.</p>
+            <div class="bottom_flex_span_course">
+              <div class="icon_timer">
+                <div class="icon_timer_element">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  <P>  02:36:25</P>
+                </div>
+                <div class="icon_timer_element">
+                  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                  <P> 21 уроков</P>
+                </div>
+                <div class="icon_timer_element">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+                  <P> English</P>
+                </div>
+                <a href="">
+                  <div class="icon_timer_element">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <P> Udemy</P>
+                  </div>
+                </a>
+
+              </div>
+              <button type="button" class="btn btn-primary">Посмотреть</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button type="button" class="btn btn-info btn_more_categories"><a href="#">Все курсы</a></button>
+  </div>
+  </div>
+
+  <!-- блок телеграм канала -->
+  <div class="telegram_chenal_block">
+   <h4>Присоединяйтесь к нашему telegram каналу</h4>
+   <p>В нашем чате вы можете общаться с другими людьми о<br>курсах, задавать вопросы и получить ответы.</p>
+    <a href="" class="link_chenal_telegramm">
+      <Button>Посетить канал</Button>
+    </a>
+  </div>
+
+  <!-- блок попклярные курсы -->
+  <div class="after_course">
+    <div class="container-fluid">
+    <h3>Популярные курсы</h3>
+      <div class="row">
+        <!-- элемент в блоке -->
+        <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+          <div class="row">
+            <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+              <img src="{% static 'img/img_course_categories/cypress.jfif' %}" alt="" class="course_image">
+
+            </div>
+            <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+              <div class="title_raiting_star">
+                <h2 class="title_course_name">CYPRESS: АВТОМАТИЗАЦИЯ ТЕСТИРОВАНИЯ ДЛЯ ТЕХ КТО ТОРОПИТСЯ</h2>
+                <div class="reiting_star">
+                  <div class="icon_star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+
+                  </div>
+                  <p>Голосов:1 | 1/0</p>
+                </div>
+              </div>
+              <p class="description">Cypress test automation for people in a hurry</p>
+              <p class="description">Этот курс предназначен для тестировщиков, инженеров по автоматизации и веб-разработчиков, которым необходимо быстро выучиться. Если вы начинаете с нуля или уже знакомы с автоматизацией тестирования, тогда этот курс для вас. Он заполнен краткими пояснительными видео, без лишних слов, только с практическими материалами.</p>
+              <div class="bottom_flex_span_course">
+                <div class="icon_timer">
+                  <div class="icon_timer_element">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <P> 00:57:58</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <P> 40 уроков</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <P> English</P>
+                  </div>
+                  <a href="">
+                    <div class="icon_timer_element">
+                      <i class="fa fa-book" aria-hidden="true"></i>
+                      <P> Udemy</P>
+                    </div>
+                  </a>
+
+                </div>
+                <button type="button" class="btn btn-primary">Посмотреть</button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- элемент в блоке -->
+        <div class="col-12  col-sm-6  col-md-4  col-lg-12  col-xl-12 after_course_element ">
+          <div class="row">
+            <div class="col-12  col-sm-12  col-md-12  col-lg-4  col-xl-4 course_image_conteiner">
+              <img src="{% static 'img/img_course_categories/react.jfif' %}" alt="" class="course_image">
+
+            </div>
+            <div class="col-12  col-sm-12  col-md-12  col-lg-8  col-xl-8">
+              <div class="title_raiting_star">
+                <h2 class="title_course_name">ТЕСТИРОВАНИЕ ПРИЛОЖЕНИЙ REACT C RTL</h2>
+                <div class="reiting_star">
+                  <div class="icon_star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o " aria-hidden="true"></i>
+                    <i class="fa fa-star-o " aria-hidden="true"></i>
+
+                  </div>
+                  <p>Голосов:3 | 2/1</p>
+                </div>
+              </div>
+              <p class="description">Cypress test automation for people in a hurry</p>
+              <p class="description">Этот курс предназначен для тестировщиков, инженеров по автоматизации и веб-разработчиков, которым необходимо быстро выучиться. Если вы начинаете с нуля или уже знакомы с автоматизацией тестирования, тогда этот курс для вас. Он заполнен краткими пояснительными видео, без лишних слов, только с практическими материалами.</p>
+              <div class="bottom_flex_span_course">
+                <div class="icon_timer">
+                  <div class="icon_timer_element">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <P>  02:36:25</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    <P> 21 уроков</P>
+                  </div>
+                  <div class="icon_timer_element">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <P> English</P>
+                  </div>
+                  <a href="">
+                    <div class="icon_timer_element">
+                      <i class="fa fa-book" aria-hidden="true"></i>
+                      <P> Udemy</P>
+                    </div>
+                  </a>
+
+                </div>
+                <button type="button" class="btn btn-primary">Посмотреть</button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+      <button type="button" class="btn btn-info btn_more_categories"><a href="#">Все курсы</a></button>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+  $(document).ready(function () {
+    // скрипт раскрытия списка популярных категорий
+    var element=document.querySelectorAll(".grid_favorite_categories_element");
+    var element=document.querySelectorAll(".grid_favorite_categories_element");
+    var countFavorite=element.length;
+    var element_colection=[];
+    for(var i=0; i < countFavorite; i++){
+      if(element[i].getAttribute('data-show-id')>10){
+        //element[i].style="display: none";
+        element[i].classList.add("hide");
+        element_colection.push(element[i]);
+
+
+    };
+  }
+    document.querySelector('.btn_more_categories').addEventListener('click',function(){
+      for(var i=0; i < element_colection.length; i++){
+        if(element_colection[i].classList.contains('hide')){
+        element_colection[i].classList.remove('hide');
+        }
+        else{
+          element_colection[i].classList.add('hide');
+        }
+
+      }
+    })
+
+  });
+
+</script>
+{% endblock content %}

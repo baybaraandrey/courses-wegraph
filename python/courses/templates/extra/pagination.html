@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="coll-md-12 books-pagination">
+        {% if is_paginated and page_obj.paginator.num_pages != 1 %}
+          <ul class="pagination">
+
+            <li class="page-item" aria-current="page">
+              <a class="page-link" href="?page=1{{ params }}">&laquo;&laquo;</a>
+            </li>
+
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{{ params }}">&laquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+
+            <li class="pagination-pages-info">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</li>
+
+            {% if page_obj.has_next %}
+              <li class="page-item" aria-current="page">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}{{ params }}">&raquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+
+            <li class="page-item" aria-current="page">
+              <a
+                      class="page-link"
+                      href="?page={{ page_obj.paginator.num_pages }}{{ params }}">&raquo;&raquo;</a>
+            </li>
+
+          </ul>
+        {% endif %}
+    </div>
+</div>

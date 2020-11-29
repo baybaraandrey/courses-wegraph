@@ -1,0 +1,54 @@
+.conteiner .top_detail_course{
+    background: linear-gradient(to bottom,#202D51 10%, #03436A 70%, #0E1933 20%);
+}
+.title_link_course a::after{
+    color: #9702A7;
+
+}
+/* стиль для блока с описанием курса */
+.conteiner_padding .description_course_min_padding{
+    padding: 25px;
+    min-height: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    position: relative;
+    
+}
+.conteiner_padding .description_course_min_padding::after{
+    box-shadow: inset -20px -30px 30px #202229;
+    width: calc(100% + 30px);
+    display: block;
+    content: "";
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+}
+.conteiner_padding .active_show_desc::after{
+    display: none;
+}
+
+
+.description_course_min_padding .icon_tim_desc p{
+    color: #d5e2ed;
+    line-height: 0.6px;
+    font-weight: 100;
+    font-size: 16px;
+}
+.description_course_min_padding p{
+    color: #d5e2ed;
+    margin-top: 15px;
+    font-weight: 100;
+    font-size: 16px;
+}
+.description_course_min_padding ul li{
+    color: #d5e2ed;
+    font-weight: 100;
+    font-size: 16px; 
+}
+/* стиль для блока с видео плеером */
+.conteiner_player{
+    width: 100%;
+    background-color: #0E1933;
+    padding: 60px 0;
+}
