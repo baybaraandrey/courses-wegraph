@@ -6,9 +6,23 @@ import (
 	"net/http"
 	"os"
 	"syscall"
+	"time"
 
+	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 )
+
+type ctxKey int
+
+// KeyValues ...
+const KeyValues ctxKey = 1
+
+// Values ...
+type Values struct {
+	TraceID    string
+	Now        time.Time
+	StatusCode int
+}
 
 // Handler ...
 type Handler func(ctx context.Context, w http.ResponseWriter, r *http.Request) error
@@ -17,13 +31,15 @@ type Handler func(ctx context.Context, w http.ResponseWriter, r *http.Request) e
 type App struct {
 	*mux.Router
 	shutdown chan os.Signal
+	mw       []Middleware
 }
 
 // NewApp ...
-func NewApp(shutdown chan os.Signal) *App {
+func NewApp(shutdown chan os.Signal, mw ...Middleware) *App {
 	app := App{
 		Router:   mux.NewRouter(),
 		shutdown: shutdown,
+		mw:       mw,
 	}
 
 	return &app
@@ -35,9 +51,18 @@ func (a *App) SignalShutdown() {
 }
 
 // Handle ...
-func (a *App) Handle(method string, path string, handler Handler) {
+func (a *App) Handle(method string, path string, handler Handler, mw ...Middleware) {
+
+	handler = wrapMiddleware(mw, handler)
+	handler = wrapMiddleware(a.mw, handler)
+
 	h := func(w http.ResponseWriter, r *http.Request) {
-		if err := handler(r.Context(), w, r); err != nil {
+		v := Values{
+			TraceID: uuid.New().String(),
+			Now:     time.Now(),
+		}
+		ctx := context.WithValue(r.Context(), KeyValues, &v)
+		if err := handler(ctx, w, r); err != nil {
 			a.SignalShutdown()
 			return
 		}

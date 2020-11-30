@@ -2,9 +2,10 @@ package handlers
 
 import (
 	"context"
-	"encoding/json"
 	"log"
 	"net/http"
+
+	"github.com/baybaraandrey/courses-wegraph/golang/foundation/web"
 )
 
 type check struct {
@@ -19,5 +20,5 @@ func (c check) readiness(ctx context.Context, w http.ResponseWriter, r *http.Req
 	}
 	c.log.Println(r, status)
 
-	return json.NewEncoder(w).Encode(status)
+	return web.Respond(ctx, w, status, http.StatusOK)
 }
